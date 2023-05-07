@@ -6,9 +6,13 @@ import tabula
 import pandas as pd
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 # Set the URL of the remote PDF file
-url = "https://pmo.govmu.org/Communique/Public_Holidays_2023.pdf"
+url = os.environ.get("pdf-link")
 
 # Read the PDF file from the URL
 response = urllib.request.urlopen(url)
@@ -35,9 +39,7 @@ df = pd.DataFrame(tables[0])
 table_data = df.to_dict(orient="records")
 
 # Create a dictionary with the key-value pairs
-# Create a list of dictionaries with the holiday name and date
 result = []
-# result.append(dict(zip(headers, headers)))
 for row in table_data:
     row[1] += " "
     row[1] += str(datetime.now().year)
