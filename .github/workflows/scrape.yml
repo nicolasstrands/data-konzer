@@ -1,0 +1,24 @@
+name: Get data from PDF file
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "* * * */12 3" # At every minute on Wednesday in every 12th month
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setting up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Installing dependencies
+        uses: py-actions/py-dependency-install@v4
+        with:
+          path: "./requirements.txt"
+      - name: Running script
+        run: python fetch.py
