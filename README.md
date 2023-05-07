@@ -20,13 +20,17 @@ The aim of this repository and dataset is to provide a hassle-free way to use th
   <summary>In which format is the data provided?</summary>
   
 - JSON
-- The data is provided as an array of objects. The objects have the following structure:
+- The data structure is as follows:
 
 ```js
 
 {
-  "name": string, // "New Year's Day",
-  "date": string, // "2023-01-01",
+  "year": [
+    {
+      "name": string, // "New Year's Day",
+      "date": string, // "2023-01-01",
+    }
+  ]
 }
 ```
 

@@ -8,7 +8,6 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 # Set the URL of the remote PDF file
@@ -49,6 +48,16 @@ for row in table_data:
             "date": datetime.strptime(row[1], "%A %d %B %Y").strftime("%Y-%m-%d"),
         }
     )
+
+# Create a dictionary to store the result by year
+result_by_year = {}
+
+# Group the result by year
+for item in result:
+    year = item["date"].split("-")[0]
+    if year not in result_by_year:
+        result_by_year[year] = []
+    result_by_year[year].append(item)
 
 # Create the data folder if it does not exist
 if not os.path.exists("data"):
