@@ -65,4 +65,4 @@ if not os.path.exists("data"):
 
 # Write the output to a JSON file in the data folder
 with open("data/public-holidays.json", "w") as outfile:
-    json.dump(result, outfile)
+    json.dump(result_by_year, outfile)

@@ -4,7 +4,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: "* * * */12 3" # At every minute on Wednesday in every 12th month
+    - cron: "0 0 1 * *" # At 00:00 on day-of-month 1
 
 jobs:
   scheduled:
