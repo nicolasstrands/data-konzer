@@ -1,13 +1,13 @@
-import urllib.request
 import io
 import json
+import pathlib
 import PyPDF2
-import tabula
 import pandas as pd
-import os
+import requests
+import tabula
 from datetime import datetime
 
-# Read the links from the JSON file
+# Read the links from the JSON file using a context manager
 with open("links.json") as f:
     links_data = json.load(f)
 links = links_data["links"]
@@ -18,9 +18,9 @@ result_by_year = {}
 # Loop through each link
 for link in links:
     for year, url in link.items():
-        # Read the PDF file from the URL
-        response = urllib.request.urlopen(url)
-        pdf_file = io.BytesIO(response.read())
+        # Read the PDF file from the URL using requests library
+        response = requests.get(url)
+        pdf_file = io.BytesIO(response.content)
 
         # Create a PyPDF2 PdfFileReader object from the PDF file
         pdf_reader = PyPDF2.PdfReader(pdf_file)
@@ -61,10 +61,9 @@ for link in links:
             result_by_year[year] = []
         result_by_year[year].extend(result)
 
-# Create the data folder if it does not exist
-if not os.path.exists("data"):
-    os.makedirs("data")
+# Create the data folder if it does not exist using pathlib library
+pathlib.Path("data").mkdir(parents=True, exist_ok=True)
 
-# Write the output to a JSON file in the data folder
-with open("data/public-holidays.json", "w") as outfile:
+# Write the output to a JSON file in the data folder using pathlib library
+with open(pathlib.Path("data") / "public-holidays.json", "w") as outfile:
     json.dump(result_by_year, outfile)
