@@ -65,9 +65,12 @@ def process_link(link):
 with ThreadPoolExecutor() as executor:
     executor.map(process_link, links)
 
+# Sort the result by year
+sorted_result_by_year = dict(sorted(result_by_year.items()))
+
 # Create the data folder if it does not exist using pathlib library
 pathlib.Path("data").mkdir(parents=True, exist_ok=True)
 
 # Write the output to a JSON file in the data folder using pathlib library
 with open(pathlib.Path("data") / "public-holidays.json", "w") as outfile:
-    json.dump(result_by_year, outfile)
+    json.dump(sorted_result_by_year, outfile, indent=4)
