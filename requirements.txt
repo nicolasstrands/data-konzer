@@ -1,5 +1,5 @@
 pandas
-PyPDF2==3.0.1
+pypdf
 python-dotenv==1.0.0
 tabula==1.0.5
 tabula_py==2.7.0
