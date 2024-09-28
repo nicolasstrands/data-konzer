@@ -1,4 +1,4 @@
-# Simple Dataset for Public Holidays in Mauritius
+# konzé tonton! 🥳
 
 ## Dataset
 
@@ -11,7 +11,7 @@ The aim of this repository and dataset is to provide a hassle-free way to use th
 - The information from the dataset is provided by the Prime Minister's Office of Mauritius.
 - The maintainer of this repository is NOT affiliated with the Prime Minister's Office of Mauritius.
 - The data is automatically fetched from the PMO's communiqué but not provided directly by them.
-- The page from which the data is fetched is [publicly available](https://pmo.govmu.org/Communique/Public_Holidays_2023.pdf).
+- The page from which the data is fetched is [publicly available](https://pmo.govmu.org/Communique/Notice%20-%20Final%20Public%20holidays%20-%202024.pdf).
 - The data is made available here under fair use.
 
 ## FAQ
