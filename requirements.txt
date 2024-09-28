@@ -1,4 +1,4 @@
-pandas==2.0.1
+pandas
 PyPDF2==3.0.1
 python-dotenv==1.0.0
 tabula==1.0.5
