@@ -35,3 +35,5 @@ The aim of this repository and dataset is to provide a hassle-free way to use th
 ```
 
 </details>
+
+** The exact date of this festival is subject to confirmation as its celebration depends on the visibility of the moon.
