@@ -22,6 +22,8 @@ jobs:
           path: "./requirements.txt"
       - name: Running script
         run: python fetch.py
+        env:
+          SPECIAL_OPENAI_KEY: ${{ secrets.SPECIAL_OPENAI_KEY }}
       - name: Commit and push changes
         run: |
           git config user.name "Automated"

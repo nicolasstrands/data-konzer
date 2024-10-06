@@ -4,3 +4,5 @@ python-dotenv==1.0.0
 tabula==1.0.5
 tabula_py==2.7.0
 requests
+openai==0.28
+bs4

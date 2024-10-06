@@ -1,20 +1,71 @@
 {
-  "links": [
-    {
-      "2020": "https://pmo.govmu.org/Communique/Public%20holidays%20--%202020.pdf"
-    },
-    {
-      "2021": "https://pmo.govmu.org/Communique/Public%20holidays%20-%202021.pdf"
-    },
-    {
-      "2022": "https://pmo.govmu.org/Communique/Public%20holidays%20-%202022.pdf"
-    },
-    { "2023": "https://pmo.govmu.org/Communique/Public_Holidays_2023.pdf" },
-    {
-      "2024": "https://pmo.govmu.org/Communique/Notice%20-%20Final%20Public%20holidays%20-%202024.pdf"
-    },
-    {
-      "2025": "https://pmo.govmu.org/Communique/Notice-Public_Holidays_2025.pdf"
-    }
-  ]
+  "countries": {
+    "mu": [
+      {
+        "2020": {
+          "url": "https://pmo.govmu.org/Communique/Public%20holidays%20--%202020.pdf",
+          "type": "pdf"
+        }
+      },
+      {
+        "2021": {
+          "url": "https://pmo.govmu.org/Communique/Public%20holidays%20-%202021.pdf",
+          "type": "pdf"
+        }
+      },
+      {
+        "2022": {
+          "url": "https://pmo.govmu.org/Communique/Public%20holidays%20-%202022.pdf",
+          "type": "pdf"
+        }
+      },
+      {
+        "2023": {
+          "url": "https://pmo.govmu.org/Communique/Public_Holidays_2023.pdf",
+          "type": "pdf"
+        }
+      },
+      {
+        "2024": {
+          "url": "https://pmo.govmu.org/Communique/Notice%20-%20Final%20Public%20holidays%20-%202024.pdf",
+          "type": "pdf"
+        }
+      },
+      {
+        "2025": {
+          "url": "https://pmo.govmu.org/Communique/Notice-Public_Holidays_2025.pdf",
+          "type": "pdf"
+        }
+      }
+    ],
+    "sa": [
+      {
+        "2024": {
+          "url": "https://www.gov.za/about-sa/public-holidays",
+          "type": "webpage",
+          "tag": "div",
+          "attr": "id",
+          "value": "block-eco-omega-system-main"
+        }
+      },
+      {
+        "2025": {
+          "url": "https://www.gov.za/about-sa/public-holidays",
+          "type": "webpage",
+          "tag": "div",
+          "attr": "id",
+          "value": "block-eco-omega-system-main"
+        }
+      },
+      {
+        "2026": {
+          "url": "https://www.gov.za/about-sa/public-holidays",
+          "type": "webpage",
+          "tag": "div",
+          "attr": "id",
+          "value": "block-eco-omega-system-main"
+        }
+      }
+    ]
+  }
 }

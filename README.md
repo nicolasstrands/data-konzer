@@ -2,7 +2,8 @@
 
 ## Dataset
 
-### [View Dataset](https://github.com/nicolasstrands/mauritius-public-holidays-dataset/blob/main/data/public-holidays.json)
+### View Datasets
+- [Mauritius](https://github.com/nicolasstrands/mauritius-public-holidays-dataset/blob/main/data/public-holidays-mauritius.json)
 
 The aim of this repository and dataset is to provide a hassle-free way to use the data to build applications.
 
