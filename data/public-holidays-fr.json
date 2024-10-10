@@ -1,4 +1,50 @@
 {
+    "2024": [
+        {
+            "name": "New Year's Day",
+            "date": "2024-01-01"
+        },
+        {
+            "name": "Easter Monday",
+            "date": "2024-04-01"
+        },
+        {
+            "name": "Labor Day",
+            "date": "2024-05-01"
+        },
+        {
+            "name": "Victory 1945",
+            "date": "2024-05-08"
+        },
+        {
+            "name": "Ascension",
+            "date": "2024-05-09"
+        },
+        {
+            "name": "Pentecost Monday",
+            "date": "2024-05-20"
+        },
+        {
+            "name": "National Day",
+            "date": "2024-07-14"
+        },
+        {
+            "name": "Assumption",
+            "date": "2024-08-15"
+        },
+        {
+            "name": "All Saints' Day",
+            "date": "2024-11-01"
+        },
+        {
+            "name": "Armistice 1918",
+            "date": "2024-11-11"
+        },
+        {
+            "name": "Christmas",
+            "date": "2024-12-25"
+        }
+    ],
     "2026": [
         {
             "name": "New Year\u2019s Day",
