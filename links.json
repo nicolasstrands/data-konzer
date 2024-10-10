@@ -69,15 +69,13 @@
     ],
     "fr": [
       {
-        "2024": [
-          {
-            "url": "https://www.service-public.fr/particuliers/vosdroits/F24496?lang=en",
-            "type": "webpage",
-            "tag": "table",
-            "attr": "class",
-            "value": "sp-table"
-          }
-        ]
+        "2024": {
+          "url": "https://www.service-public.fr/particuliers/vosdroits/F24496?lang=en",
+          "type": "webpage",
+          "tag": "table",
+          "attr": "class",
+          "value": "sp-table"
+        }
       }
     ]
   }

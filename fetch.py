@@ -66,7 +66,7 @@ def extract_holidays_with_openai(content, country, year):
         sys.exit(1)
 
     prompt = f"""
-    Extract the public holidays for {country} in the year {year} from the following text.
+    Extract the public holidays for {country} in the year from the following text.
     Provide the data in JSON format with the structure:
     {{
         "{year}": [
@@ -154,6 +154,7 @@ def process_link(country, link):
                         content, link_info["tag"], link_info["attr"], link_info["value"]
                     )
                     if relevant_text:
+                        print(f"Extracting holidays for {country} in {year}...")
                         extracted_json_str = extract_holidays_with_openai(
                             relevant_text, country, year
                         )
@@ -172,6 +173,7 @@ def process_link(country, link):
 # Process links concurrently
 with ThreadPoolExecutor() as executor:
     for country, links in links_data["countries"].items():
+        print(f"Processing links for {country}...")
         executor.map(lambda link: process_link(country, link), links)
 
 # Create the data folder and save output
