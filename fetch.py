@@ -117,6 +117,7 @@ def validate_and_load_json(json_str):
 # Process each link (PDF or webpage)
 def process_link(country, link):
     for year, link_info in link.items():
+        print(f"Processing link for {country} in {year}...")
         url = link_info["url"]
         link_type = link_info["type"]
         try:
