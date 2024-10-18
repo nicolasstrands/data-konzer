@@ -118,13 +118,13 @@ def validate_and_load_json(json_str):
 def process_link(country, link):
     for year, link_info in link.items():
         if country == "mu":
-            country = "Mauritius"
+            country_name = "Mauritius"
         elif country == "fr":
-            country = "France"
+            country_name = "France"
         elif country == "sa":
-            country = "South Africa"
+            country_name = "South Africa"
 
-        print(f"Processing link for {country} in {year}...")
+        print(f"Processing link for {country_name} in {year}...")
         url = link_info["url"]
         link_type = link_info["type"]
         try:
