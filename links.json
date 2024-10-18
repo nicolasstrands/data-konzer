@@ -70,29 +70,11 @@
     "fr": [
       {
         "2024": {
-          "url": "https://publicholidays.fr/2024-dates/",
+          "url": "https://www.service-public.fr/particuliers/vosdroits/F2405",
           "type": "webpage",
           "tag": "table",
           "attr": "class",
-          "value": "publicholidays phgtable "
-        }
-      },
-      {
-        "2025": {
-          "url": "https://publicholidays.fr/2025-dates/",
-          "type": "webpage",
-          "tag": "table",
-          "attr": "class",
-          "value": "publicholidays phgtable "
-        }
-      },
-      {
-        "2026": {
-          "url": "https://publicholidays.fr/2026-dates/",
-          "type": "webpage",
-          "tag": "table",
-          "attr": "class",
-          "value": "publicholidays phgtable "
+          "value": "sp-table"
         }
       }
     ]
