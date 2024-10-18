@@ -70,11 +70,29 @@
     "fr": [
       {
         "2024": {
-          "url": "https://www.service-public.fr/particuliers/vosdroits/F24496?lang=en",
+          "url": "https://www.lecalendrier.fr/jours-feries-2024",
           "type": "webpage",
           "tag": "table",
-          "attr": "class",
-          "value": "sp-table"
+          "attr": "id",
+          "value": "table-bank-days"
+        }
+      },
+      {
+        "2025": {
+          "url": "https://www.lecalendrier.fr/jours-feries-2025",
+          "type": "webpage",
+          "tag": "table",
+          "attr": "id",
+          "value": "table-bank-days"
+        }
+      },
+      {
+        "2026": {
+          "url": "https://www.lecalendrier.fr/jours-feries-2026",
+          "type": "webpage",
+          "tag": "table",
+          "attr": "id",
+          "value": "table-bank-days"
         }
       }
     ]
