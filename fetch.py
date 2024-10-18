@@ -164,7 +164,7 @@ def process_link(country, link):
                     if relevant_text:
                         print(f"Extracting holidays for {country} in {year}...")
                         extracted_json_str = extract_holidays_with_openai(
-                            relevant_text, country, year
+                            relevant_text, country_name, year
                         )
                         data = validate_and_load_json(extracted_json_str)
                         if data:
