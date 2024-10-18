@@ -171,11 +171,11 @@ def process_link(country, link):
             print(f"Error processing {url}: {e}")
 
 
-# Process links concurrently
-with ThreadPoolExecutor() as executor:
-    for country, links in links_data["countries"].items():
-        print(f"Processing links for {country}...")
-        executor.map(lambda link: process_link(country, link), links)
+# Process links sequentially
+for country, links in links_data["countries"].items():
+    print(f"Processing links for {country}...")
+    for link in links:
+        process_link(country, link)
 
 # Create the data folder and save output
 pathlib.Path("data").mkdir(parents=True, exist_ok=True)
