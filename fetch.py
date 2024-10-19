@@ -25,6 +25,16 @@ with open("links.json") as f:
 result_by_country = {}
 
 
+# Function to check if the year already exists in the JSON file
+def year_exists_in_file(country, year):
+    file_path = pathlib.Path("data") / f"public-holidays-{country}.json"
+    if not file_path.exists():
+        return False
+    with open(file_path, "r") as file:
+        data = json.load(file)
+        return str(year) in data
+
+
 # Fetch webpage content
 def fetch_webpage_content(url):
     try:
@@ -182,7 +192,11 @@ def process_link(country, link):
 for country, links in links_data["countries"].items():
     print(f"Processing links for {country}...")
     for link in links:
-        process_link(country, link)
+        for year, link_info in link.items():
+            if year_exists_in_file(country, year):
+                print(f"Skipping {country} for year {year} as it already exists.")
+                continue
+            process_link(country, link_info)
 
 # Create the data folder and save output
 pathlib.Path("data").mkdir(parents=True, exist_ok=True)
