@@ -1,48 +1,156 @@
 {
-    "2024": [
-        {
-            "name": "Jour de l'An",
-            "date": "2024-01-01"
-        },
-        {
-            "name": "Lundi de P\u00e2ques",
-            "date": "2024-04-01"
-        },
-        {
-            "name": "F\u00eate du Travail",
-            "date": "2024-05-01"
-        },
-        {
-            "name": "Victoire 1945",
-            "date": "2024-05-08"
-        },
-        {
-            "name": "Ascension",
-            "date": "2024-05-09"
-        },
-        {
-            "name": "Lundi de Pentec\u00f4te",
-            "date": "2024-05-20"
-        },
-        {
-            "name": "F\u00eate nationale",
-            "date": "2024-07-14"
-        },
-        {
-            "name": "Assomption",
-            "date": "2024-08-15"
-        },
-        {
-            "name": "Toussaint",
-            "date": "2024-11-01"
-        },
-        {
-            "name": "Armistice 1918",
-            "date": "2024-11-11"
-        },
-        {
-            "name": "No\u00ebl",
-            "date": "2024-12-25"
-        }
-    ]
+  "2024": [
+    {
+      "name": "Jour de l'An",
+      "date": "2024-01-01"
+    },
+    {
+      "name": "Lundi de P\u00e2ques",
+      "date": "2024-04-01"
+    },
+    {
+      "name": "F\u00eate du Travail",
+      "date": "2024-05-01"
+    },
+    {
+      "name": "Victoire 1945",
+      "date": "2024-05-08"
+    },
+    {
+      "name": "Ascension",
+      "date": "2024-05-09"
+    },
+    {
+      "name": "Lundi de Pentec\u00f4te",
+      "date": "2024-05-20"
+    },
+    {
+      "name": "F\u00eate nationale",
+      "date": "2024-07-14"
+    },
+    {
+      "name": "Assomption",
+      "date": "2024-08-15"
+    },
+    {
+      "name": "Toussaint",
+      "date": "2024-11-01"
+    },
+    {
+      "name": "Armistice 1918",
+      "date": "2024-11-11"
+    },
+    {
+      "name": "No\u00ebl",
+      "date": "2024-12-25"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Jour de l'An",
+      "date": "2025-01-01"
+    },
+    {
+      "name": "P\u00e2ques",
+      "date": "2025-04-20"
+    },
+    {
+      "name": "Lundi de P\u00e2ques",
+      "date": "2025-04-21"
+    },
+    {
+      "name": "F\u00eate du Travail",
+      "date": "2025-05-01"
+    },
+    {
+      "name": "Victoire 1945",
+      "date": "2025-05-08"
+    },
+    {
+      "name": "Ascension",
+      "date": "2025-05-29"
+    },
+    {
+      "name": "Pentec\u00f4te",
+      "date": "2025-06-08"
+    },
+    {
+      "name": "Lundi de Pentec\u00f4te",
+      "date": "2025-06-09"
+    },
+    {
+      "name": "F\u00eate nationale",
+      "date": "2025-07-14"
+    },
+    {
+      "name": "Assomption",
+      "date": "2025-08-15"
+    },
+    {
+      "name": "Toussaint",
+      "date": "2025-11-01"
+    },
+    {
+      "name": "Armistice 1918",
+      "date": "2025-11-11"
+    },
+    {
+      "name": "No\u00ebl",
+      "date": "2025-12-25"
+    }
+  ],
+  "2026": [
+    {
+      "name": "Jour de l'An",
+      "date": "2026-01-01"
+    },
+    {
+      "name": "P\u00e2ques",
+      "date": "2026-04-05"
+    },
+    {
+      "name": "Lundi de P\u00e2ques",
+      "date": "2026-04-06"
+    },
+    {
+      "name": "F\u00eate du Travail",
+      "date": "2026-05-01"
+    },
+    {
+      "name": "Victoire 1945",
+      "date": "2026-05-08"
+    },
+    {
+      "name": "Ascension",
+      "date": "2026-05-14"
+    },
+    {
+      "name": "Pentec\u00f4te",
+      "date": "2026-05-24"
+    },
+    {
+      "name": "Lundi de Pentec\u00f4te",
+      "date": "2026-05-25"
+    },
+    {
+      "name": "F\u00eate nationale",
+      "date": "2026-07-14"
+    },
+    {
+      "name": "Assomption",
+      "date": "2026-08-15"
+    },
+    {
+      "name": "Toussaint",
+      "date": "2026-11-01"
+    },
+    {
+      "name": "Armistice 1918",
+      "date": "2026-11-11"
+    },
+    {
+      "name": "No\u00ebl",
+      "date": "2026-12-25"
+    }
+  ]
 }

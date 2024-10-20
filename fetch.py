@@ -125,67 +125,67 @@ def validate_and_load_json(json_str):
 
 
 # Process each link (PDF or webpage)
-def process_link(country, link):
-    for year, link_info in link.items():
-        if country == "mu":
-            country_name = "Mauritius"
-        elif country == "fr":
-            country_name = "France"
-        elif country == "sa":
-            country_name = "South Africa"
+def process_link(country, link_info, year):
+    # for link_info in link.items():
+    if country == "mu":
+        country_name = "Mauritius"
+    elif country == "fr":
+        country_name = "France"
+    elif country == "za":
+        country_name = "South Africa"
 
-        print(f"Processing link for {country_name} in {year}...")
-        url = link_info["url"]
-        link_type = link_info["type"]
-        try:
-            if link_type == "pdf":
-                response = requests.get(url)
-                response.raise_for_status()
-                pdf_file = io.BytesIO(response.content)
-                pdf_reader = pypdf.PdfReader(pdf_file)
-                tables = tabula.read_pdf(url, pages=1, pandas_options={"header": None})
-                df = pd.DataFrame(tables[0])
-                table_data = df.to_dict(orient="records")
+    print(f"Processing link for {country_name} in {year}...")
+    url = link_info["url"]
+    link_type = link_info["type"]
+    try:
+        if link_type == "pdf":
+            response = requests.get(url)
+            response.raise_for_status()
+            pdf_file = io.BytesIO(response.content)
+            pdf_reader = pypdf.PdfReader(pdf_file)
+            tables = tabula.read_pdf(url, pages=1, pandas_options={"header": None})
+            df = pd.DataFrame(tables[0])
+            table_data = df.to_dict(orient="records")
 
-                result = []
-                for row in table_data:
-                    row[1] += f" {year}"
-                    result.append(
-                        {
-                            "name": row[0].title(),
-                            "date": datetime.strptime(row[1], "%A %d %B %Y").strftime(
-                                "%Y-%m-%d"
-                            ),
-                        }
+            result = []
+            for row in table_data:
+                row[1] += f" {year}"
+                result.append(
+                    {
+                        "name": row[0].title(),
+                        "date": datetime.strptime(row[1], "%A %d %B %Y").strftime(
+                            "%Y-%m-%d"
+                        ),
+                    }
+                )
+
+            if country not in result_by_country:
+                result_by_country[country] = {}
+            if year not in result_by_country[country]:
+                result_by_country[country][year] = []
+            result_by_country[country][year].extend(result)
+
+        elif link_type == "webpage":
+            content = fetch_webpage_content(url)
+            if content:
+                relevant_text = extract_relevant_text(
+                    content, link_info["tag"], link_info["attr"], link_info["value"]
+                )
+                if relevant_text:
+                    print(f"Extracting holidays for {country} in {year}...")
+                    extracted_json_str = extract_holidays_with_openai(
+                        relevant_text, country_name, year
                     )
+                    data = validate_and_load_json(extracted_json_str)
+                    if data:
+                        if country not in result_by_country:
+                            result_by_country[country] = {}
+                        if year not in result_by_country[country]:
+                            result_by_country[country][year] = []
+                        result_by_country[country][year].extend(data[year])
 
-                if country not in result_by_country:
-                    result_by_country[country] = {}
-                if year not in result_by_country[country]:
-                    result_by_country[country][year] = []
-                result_by_country[country][year].extend(result)
-
-            elif link_type == "webpage":
-                content = fetch_webpage_content(url)
-                if content:
-                    relevant_text = extract_relevant_text(
-                        content, link_info["tag"], link_info["attr"], link_info["value"]
-                    )
-                    if relevant_text:
-                        print(f"Extracting holidays for {country} in {year}...")
-                        extracted_json_str = extract_holidays_with_openai(
-                            relevant_text, country_name, year
-                        )
-                        data = validate_and_load_json(extracted_json_str)
-                        if data:
-                            if country not in result_by_country:
-                                result_by_country[country] = {}
-                            if year not in result_by_country[country]:
-                                result_by_country[country][year] = []
-                            result_by_country[country][year].extend(data[year])
-
-        except Exception as e:
-            print(f"Error processing {url}: {e}")
+    except Exception as e:
+        print(f"Error processing {url}: {e}")
 
 
 # Process links sequentially
@@ -193,10 +193,13 @@ for country, links in links_data["countries"].items():
     print(f"Processing links for {country}...")
     for link in links:
         for year, link_info in link.items():
+            # print link_info as json
+            print(json.dumps(link_info, indent=4))
+
             if year_exists_in_file(country, year):
                 print(f"Skipping {country} for year {year} as it already exists.")
                 continue
-            process_link(country, link_info)
+            process_link(country, link_info, year)
 
 # Create the data folder and save output
 pathlib.Path("data").mkdir(parents=True, exist_ok=True)
