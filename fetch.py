@@ -133,6 +133,8 @@ def process_link(country, link_info, year):
         country_name = "France"
     elif country == "za":
         country_name = "South Africa"
+    elif country == "sg":
+        country_name = "Singapore"
 
     print(f"Processing link for {country_name} in {year}...")
     url = link_info["url"]
