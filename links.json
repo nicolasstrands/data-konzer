@@ -77,6 +77,26 @@
           "value": "sp-table"
         }
       }
+    ],
+    "sg": [
+      {
+        "2024": {
+          "url": "https://www.mom.gov.sg/newsroom/press-releases/2023/0524-public-holidays-for-2024",
+          "type": "webpage",
+          "tag": "div",
+          "attr": "class",
+          "value": "page-content"
+        }
+      },
+      {
+        "2025": {
+          "url": "https://www.mom.gov.sg/newsroom/press-releases/2024/0805-public-holidays-for-2025",
+          "type": "webpage",
+          "tag": "div",
+          "attr": "class",
+          "value": "page-content"
+        }
+      }
     ]
   }
 }
