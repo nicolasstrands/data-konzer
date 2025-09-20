@@ -3,6 +3,7 @@ import io
 import json
 import pathlib
 import sys
+import base64
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
@@ -112,6 +113,90 @@ def extract_holidays_with_openai(content, country, year):
         return None
 
 
+# Function to encode image to base64
+def encode_image_to_base64(image_content):
+    """Convert image content to base64 string for OpenAI Vision API"""
+    return base64.b64encode(image_content).decode('utf-8')
+
+
+# Extract holidays from image using OpenAI Vision API
+def extract_holidays_from_image(image_url, country, year):
+    """
+    Extract public holidays from an image using OpenAI's Vision API
+    """
+    openai.api_key = os.getenv("SPECIAL_OPENAI_KEY")
+    if not openai.api_key:
+        print("Error: SPECIAL_OPENAI_KEY environment variable not set.")
+        sys.exit(1)
+
+    try:
+        # Download the image
+        response = requests.get(image_url)
+        response.raise_for_status()
+        
+        # Encode image to base64
+        base64_image = encode_image_to_base64(response.content)
+        
+        prompt = f"""
+        Please analyze this image and extract all public holidays for {country} in the year {year}.
+        Look for dates, holiday names, and any calendar information.
+        
+        Provide the data in JSON format with the structure:
+        {{
+            "{year}": [
+                {{
+                    "name": "Holiday Name",
+                    "date": "YYYY-MM-DD"
+                }},
+                ...
+            ]
+        }}
+        
+        If the image contains a calendar or schedule, extract all the public holidays listed.
+        Make sure to format dates as YYYY-MM-DD and use the exact holiday names as shown in the image.
+        """
+
+        response = openai.ChatCompletion.create(
+            model="gpt-4o",  # Using gpt-4o for vision capabilities
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a helpful assistant that extracts public holidays from images. You can read text, calendars, and schedules in images."
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": prompt
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{base64_image}",
+                                "detail": "high"
+                            }
+                        }
+                    ]
+                }
+            ],
+            max_tokens=2000,
+            temperature=0,
+        )
+
+        return response["choices"][0]["message"]["content"]
+    
+    except requests.exceptions.RequestException as e:
+        print(f"Error downloading image: {e}")
+        return None
+    except openai.error.OpenAIError as e:
+        print(f"OpenAI API error: {e}")
+        return None
+    except Exception as e:
+        print(f"Unexpected error processing image: {e}")
+        return None
+
+
 # Validate and load JSON
 def validate_and_load_json(json_str):
     try:
@@ -185,6 +270,23 @@ def process_link(country, link_info, year):
                         if year not in result_by_country[country]:
                             result_by_country[country][year] = []
                         result_by_country[country][year].extend(data[year])
+
+        elif link_type == "image":
+            print(f"Processing image for {country_name} in {year}...")
+            extracted_json_str = extract_holidays_from_image(url, country_name, year)
+            if extracted_json_str:
+                data = validate_and_load_json(extracted_json_str)
+                if data and str(year) in data:
+                    if country not in result_by_country:
+                        result_by_country[country] = {}
+                    if year not in result_by_country[country]:
+                        result_by_country[country][year] = []
+                    result_by_country[country][year].extend(data[str(year)])
+                    print(f"Successfully extracted {len(data[str(year)])} holidays from image")
+                else:
+                    print(f"No valid holiday data found in image for {country_name} {year}")
+            else:
+                print(f"Failed to extract data from image for {country_name} {year}")
 
     except Exception as e:
         print(f"Error processing {url}: {e}")
