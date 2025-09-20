@@ -102,6 +102,15 @@
           "attr": "class",
           "value": "page-content"
         }
+      },
+      {
+        "2026": {
+          "url": "https://www.mom.gov.sg/newsroom/press-releases/2025/0616-public-holidays-for-2026",
+          "type": "webpage",
+          "tag": "div",
+          "attr": "class",
+          "value": "page-content"
+        }
       }
     ]
   }
