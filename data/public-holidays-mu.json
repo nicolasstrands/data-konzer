@@ -432,5 +432,71 @@
             "name": "Christmas",
             "date": "2026-12-25"
         }
+    ],
+    "2027": [
+        {
+            "name": "New Year",
+            "date": "2027-01-01"
+        },
+        {
+            "name": "New Year",
+            "date": "2027-01-02"
+        },
+        {
+            "name": "Thaipoosam Cavadee",
+            "date": "2027-01-22"
+        },
+        {
+            "name": "Abolition of Slavery",
+            "date": "2027-02-01"
+        },
+        {
+            "name": "Chinese Spring Festival",
+            "date": "2027-02-06"
+        },
+        {
+            "name": "Maha Shivaratree",
+            "date": "2027-03-06"
+        },
+        {
+            "name": "Eid-Ul-Fitr",
+            "date": "2027-03-10"
+        },
+        {
+            "name": "Independence Day and Republic Day",
+            "date": "2027-03-12"
+        },
+        {
+            "name": "Ougadi",
+            "date": "2027-04-07"
+        },
+        {
+            "name": "Labour Day",
+            "date": "2027-05-01"
+        },
+        {
+            "name": "Ganesh Chaturthi",
+            "date": "2027-09-05"
+        },
+        {
+            "name": "Public Holiday",
+            "date": "2027-09-06"
+        },
+        {
+            "name": "Divali",
+            "date": "2027-10-29"
+        },
+        {
+            "name": "All Saints Day",
+            "date": "2027-11-01"
+        },
+        {
+            "name": "Arrival of Indentured Labourers",
+            "date": "2027-11-02"
+        },
+        {
+            "name": "Christmas",
+            "date": "2027-12-25"
+        }
     ]
 }

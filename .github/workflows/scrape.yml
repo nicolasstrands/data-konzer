@@ -1,34 +1,48 @@
-name: Get data from PDF file
+name: Validate and refresh datasets
 
 on:
+  pull_request:
   push:
+    branches: [main]
+    paths: ["data/**", "fetch.py", "links.json", "requirements.txt", ".github/workflows/scrape.yml"]
   workflow_dispatch:
   schedule:
-    - cron: "0 0 1 * *" # At 00:00 on day-of-month 1
+    - cron: "17 2 1 * *"
+
+permissions:
+  contents: read
+concurrency:
+  group: holidays-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  scheduled:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Setting up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
-      - name: Installing dependencies
-        uses: py-actions/py-dependency-install@v4
-        with:
-          path: "./requirements.txt"
-      - name: Running script
-        run: python fetch.py
-        env:
-          SPECIAL_OPENAI_KEY: ${{ secrets.SPECIAL_OPENAI_KEY }}
-      - name: Commit and push changes
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python fetch.py --check
+
+  refresh:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python fetch.py
+      - name: Commit refreshed data
         run: |
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data; then
+            echo "No dataset changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
-          timestamp=$(date -u)
-          git commit -m "Latest data: ${timestamp}" || exit 0
+          git commit -m "chore(data): refresh public holidays"
           git push
