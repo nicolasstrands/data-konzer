@@ -15,7 +15,11 @@
       "2025": { "url": "https://www.gov.za/about-sa/public-holidays", "parser": "legacy-webpage" },
       "2026": { "url": "https://www.gov.za/about-sa/public-holidays", "parser": "legacy-webpage" }
     },
-    "fr": { "2024": { "url": "https://www.service-public.fr/particuliers/vosdroits/F2405", "parser": "legacy-webpage" } },
+    "fr": {
+      "2024": { "url": "https://www.service-public.fr/particuliers/vosdroits/F2405", "parser": "service-public" },
+      "2026": { "url": "https://www.service-public.fr/particuliers/vosdroits/F2405", "parser": "service-public" },
+      "2027": { "url": "https://www.service-public.fr/particuliers/vosdroits/F2405", "parser": "service-public" }
+    },
     "sg": {
       "2024": { "url": "https://www.mom.gov.sg/newsroom/press-releases/2023/0524-public-holidays-for-2024", "parser": "legacy-webpage" },
       "2025": { "url": "https://www.mom.gov.sg/newsroom/press-releases/2024/0805-public-holidays-for-2025", "parser": "legacy-webpage" },

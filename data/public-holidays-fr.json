@@ -105,15 +105,11 @@
       "date": "2026-01-01"
     },
     {
-      "name": "P\u00e2ques",
-      "date": "2026-04-05"
-    },
-    {
       "name": "Lundi de P\u00e2ques",
       "date": "2026-04-06"
     },
     {
-      "name": "F\u00eate du Travail",
+      "name": "Journ\u00e9e internationale des travailleurs",
       "date": "2026-05-01"
     },
     {
@@ -123,10 +119,6 @@
     {
       "name": "Ascension",
       "date": "2026-05-14"
-    },
-    {
-      "name": "Pentec\u00f4te",
-      "date": "2026-05-24"
     },
     {
       "name": "Lundi de Pentec\u00f4te",
@@ -151,6 +143,52 @@
     {
       "name": "No\u00ebl",
       "date": "2026-12-25"
+    }
+  ],
+  "2027": [
+    {
+      "name": "Jour de l'An",
+      "date": "2027-01-01"
+    },
+    {
+      "name": "Lundi de P\u00e2ques",
+      "date": "2027-03-29"
+    },
+    {
+      "name": "F\u00eate du Travail",
+      "date": "2027-05-01"
+    },
+    {
+      "name": "Ascension",
+      "date": "2027-05-06"
+    },
+    {
+      "name": "Victoire 1945",
+      "date": "2027-05-08"
+    },
+    {
+      "name": "Lundi de Pentec\u00f4te",
+      "date": "2027-05-17"
+    },
+    {
+      "name": "F\u00eate nationale",
+      "date": "2027-07-14"
+    },
+    {
+      "name": "Assomption",
+      "date": "2027-08-15"
+    },
+    {
+      "name": "Toussaint",
+      "date": "2027-11-01"
+    },
+    {
+      "name": "Armistice 1918",
+      "date": "2027-11-11"
+    },
+    {
+      "name": "No\u00ebl",
+      "date": "2027-12-25"
     }
   ]
 }
